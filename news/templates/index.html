@@ -9,9 +9,11 @@
     <article class="post">
       <header>
         <div>
-          <h1>{{ article['title'] }}</h1>
+          <p1>{{ article['title'] }}</p1>
+        </div>
+          <a class="action" href="{{ url_for('show', id=article['id']) }}">See Article</a>
+          <a class="action" href="{{ url_for('summarize', id=article['id']) }}">Read in 15s</a>
       </header>
-      <p class="body">{{ article['body'] }}</p>
     </article>
     {% if not loop.last %}
       <hr>
