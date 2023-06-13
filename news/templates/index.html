@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Latest Stories{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for article in articles %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ article['title'] }}</h1>
+      </header>
+      <p class="body">{{ article['body'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
