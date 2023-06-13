@@ -1,7 +1,7 @@
-# Flask News App
+# News App
 A web application is built using Python framework (Flask) and BART LLM. The app displays information about news articles from popular sources, provides Machine Learning functionalities like summarization and chatbot
 
-## Requirements
+## Functions
 The user can perform the following functions:
 
 - See latest news on the homepage of the application
@@ -9,17 +9,11 @@ The user can perform the following functions:
 - Select a news and read it in 15s.
 - Click on an article and read the full article.
 
-## Installation / Setup instruction
-The application requires the following installations to operate:
-- pip
-- gunicorn
-- flask
-
 ## Technologies Used
 - python 3.8.8
 
 ## Project Setup Instructions
-1) Git clone the repository 
+1. Git clone the repository 
 ```
 $ git clone https://github.com/JonathanZZhang/Databricks-News.git
 ```
