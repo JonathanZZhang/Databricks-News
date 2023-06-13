@@ -21,15 +21,15 @@ $ git clone https://github.com/JonathanZZhang/Databricks-News.git
 ```
 $ cd Databricks-News
 ```
-3. create a virtual env
+3. create a virtual environment
 ```
 $ python -m venv venv
 ```
-4. activate env
+4. activate venv
 ```
 $ source venv/scripts/activate
 ```
-5. Open CMD & Install Dependancies
+5. nstall Dependancies
 ```
 $ pip install -r requirements.txt
 ```
