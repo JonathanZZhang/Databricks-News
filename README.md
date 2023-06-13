@@ -29,7 +29,7 @@ $ python -m venv venv
 ```
 $ source venv/scripts/activate
 ```
-5. nstall Dependancies
+5. install Dependencies
 ```
 $ pip install -r requirements.txt
 ```

@@ -5,6 +5,7 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 from news.db import get_db
+from .chatbot import answer
 
 def create_app(test_config=None):
     # create and configure the app
@@ -66,6 +67,25 @@ def create_app(test_config=None):
             return render_template('summary.html', article = article)
         else:
             return 'Yet to be Summarized'
+    
+    @app.route('/<int:id>/chat', methods = ('GET', 'POST'))
+    def chat(id):
+        article = get_article(id)
+        result = ''
+        if request.method == 'POST':
+            question = request.form['question']
+            body = article['body']
+            error = None
+            
+            if not question:
+                error = "question required"
+                
+            if error is not None:
+                flash(error)
+            else:
+                result = answer(question, body)
+                return render_template('chat.html', answer=result)
+        return render_template('chat.html', answer='')
     
     from . import db
     db.init_app(app)

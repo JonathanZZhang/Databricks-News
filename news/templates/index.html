@@ -13,6 +13,7 @@
         </div>
           <a class="action" href="{{ url_for('show', id=article['id']) }}">See Article</a>
           <a class="action" href="{{ url_for('summarize', id=article['id']) }}">Read in 15s</a>
+          <a class="action" href="{{ url_for('chat', id=article['id']) }}">Chat</a>
       </header>
     </article>
     {% if not loop.last %}

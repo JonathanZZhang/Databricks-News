@@ -4,13 +4,14 @@ from datetime import datetime
 from flask import current_app
 import sqlite3
 from requests.exceptions import SSLError
+from .summarizer import summarize
 # from .db import get_db
 
 # URL to scrape
 BASE_URL = "https://lite.cnn.com"
 
 # number of articles to be scraped
-NUM_SCRAPED = 20
+NUM_SCRAPED = 2
 
 summary = "summary"
 
@@ -89,12 +90,14 @@ def get_articles():
             # Get the article content for this link
                 article_content = get_article_content(link_soup)
                 article_title = get_article_headline(link_soup)
+                article_summary = summarize(article_content)
+                print(f'Saving Summary: {article_summary}')
                 # print(f'about to save news with title{article_title}')
                 try:
                     db.execute(
                         'INSERT INTO article (title, body, summary)'
                         'VALUES (?,?,?)',
-                        (article_title, article_content, summary)
+                        (article_title, article_content, article_summary)
                     )
                     db.commit()
                     print('Article saved successfully!')
