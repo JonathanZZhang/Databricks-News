@@ -5,7 +5,7 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 from news.db import get_db
-from .chatbot import answer
+from .chat import news_answer, topic_answer, tag
 
 def create_app(test_config=None):
     # create and configure the app
@@ -72,9 +72,11 @@ def create_app(test_config=None):
     def chat(id):
         article = get_article(id)
         result = ''
+        body = article['body']
+        tags = tag(body)
+        print(tags)
         if request.method == 'POST':
             question = request.form['question']
-            body = article['body']
             error = None
             
             if not question:
@@ -83,9 +85,9 @@ def create_app(test_config=None):
             if error is not None:
                 flash(error)
             else:
-                result = answer(question, body)
-                return render_template('chat.html', answer=result)
-        return render_template('chat.html', answer='')
+                result = news_answer(question, body)
+                return render_template('chat.html', answer=result, tags=tags)
+        return render_template('chat.html', answer='',tags=tags)
     
     from . import db
     db.init_app(app)

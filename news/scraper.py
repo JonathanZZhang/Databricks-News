@@ -11,7 +11,7 @@ from .summarizer import summarize
 BASE_URL = "https://lite.cnn.com"
 
 # number of articles to be scraped
-NUM_SCRAPED = 2
+NUM_SCRAPED = 20
 
 summary = "summary"
 
