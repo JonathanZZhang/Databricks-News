@@ -8,7 +8,9 @@ from langchain.docstore.document import Document
 device = 0 if torch.cuda.is_available() else -1  # 0 is the device number for the first GPU
 
 generate_text = pipeline(task="summarization", 
-                         model="facebook/bart-large-cnn", 
+                        #  model="facebook/bart-large-cnn", 
+                        model = "ainize/bart-base-cnn",
+                        # model = "google/pegasus-cnn_dailymail",
                          torch_dtype=torch.bfloat16,
                          trust_remote_code=True, 
                          device=device)  # explicitly set the device here
