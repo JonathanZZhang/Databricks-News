@@ -10,9 +10,9 @@ The user can perform the following functions:
 - Click on an article and read the full article.
 
 ## Technologies Used
-- python 3.8.8
+- python 3.11
 
-## Project Setup Instructions
+## Project Setup Instructions (Using in Terminal)
 1. Git clone the repository 
 ```
 $ git clone https://github.com/JonathanZZhang/Databricks-News.git
@@ -23,11 +23,11 @@ $ cd Databricks-News
 ```
 3. create a virtual environment
 ```
-$ python -m venv venv
+$ python3 -m venv env
 ```
-4. activate venv
+4. activate env
 ```
-$ source venv/scripts/activate
+$ source env/bin/activate
 ```
 5. install Dependencies
 ```
@@ -45,5 +45,6 @@ $ flask --app news scrape
 ```
 $ flask --app news run
 ```
+9. Paste the url(default: http://127.0.0.1:5000, but please check on your terminal) into the web browser and run the model!
 
 
